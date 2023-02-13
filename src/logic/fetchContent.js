@@ -26,7 +26,7 @@ function contentCleanup() {
 
   fetchContent("product").then((response) =>
     response.forEach((item) => {
-      content.products[item.fields.name] = {
+      content.products[item.fields.productName] = {
         name: item.fields.name,
         description: item.fields.productDescription,
         images: item.fields.productImage,

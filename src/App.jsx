@@ -5,16 +5,34 @@ import { ScaleLoader } from "react-spinners";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
+  function checkContent() {
+    const intervalID = setInterval(() => {
+      if (
+        content.images.logo != undefined &&
+        content.products.greenDragon != undefined
+      ) {
+        setLoading(false);
+        clearInterval(intervalID);
+      } else return;
     }, 250);
+  }
+
+  useEffect(() => {
+    checkContent();
   }, []);
 
-  return loading ? null : (
+  return loading ? (
+    <div className='h-screen w-screen flex justify-center items-center'>
+      <ScaleLoader color='#000000' />
+    </div>
+  ) : (
     <div>
       <nav>
-        <img src={content.images.logo.src} alt={content.images.logo.name} />
+        <img
+          src={content.images.logo.src}
+          alt={content.images.logo.name}
+          className='w-28'
+        />
         <a href=''></a>
         <a href=''></a>
         <a href=''></a>
