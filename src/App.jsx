@@ -1,12 +1,20 @@
-import { data } from "./logic/fetchContent";
+import { useEffect, useState } from "react";
+import { content } from "./logic/fetchContent";
+import { ScaleLoader } from "react-spinners";
 
 function App() {
-  const { products, images } = data;
+  const [loading, setLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 250);
+  }, []);
+
+  return loading ? null : (
     <div>
       <nav>
-        <img src='' alt='' />
+        <img src={content.images.logo.src} alt={content.images.logo.name} />
         <a href=''></a>
         <a href=''></a>
         <a href=''></a>
