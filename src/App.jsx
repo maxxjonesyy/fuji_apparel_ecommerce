@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { content } from "./logic/fetchContent";
 import { ScaleLoader } from "react-spinners";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,21 +23,12 @@ function App() {
   }, []);
 
   return loading ? (
-    <div className='h-screen w-screen flex justify-center items-center'>
+    <div className='flex items-center justify-center'>
       <ScaleLoader color='#000000' />
     </div>
   ) : (
     <div>
-      <nav>
-        <img
-          src={content.images.logo.src}
-          alt={content.images.logo.name}
-          className='w-28'
-        />
-        <a href=''></a>
-        <a href=''></a>
-        <a href=''></a>
-      </nav>
+      <Navbar content={content} />
     </div>
   );
 }
