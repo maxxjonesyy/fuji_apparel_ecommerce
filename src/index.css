@@ -12,12 +12,31 @@
   transition: 0.5s ease-in-out;
 }
 
-.animate-fade-in {
-  opacity: 0.5;
-  transition: 0.5s ease-in-out;
+.animate-slide-show {
+  animation: slideShow;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 25s;
+  filter: grayscale();
 }
 
-.animate-fade-out {
-  opacity: 0;
-  transition: 0.5s ease-in-out;
+@keyframes slideShow {
+  30% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-100%);
+  }
+
+  70% {
+    transform: translateY(-100%);
+  }
+
+  90% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
 }

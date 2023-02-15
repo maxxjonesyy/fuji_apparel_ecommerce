@@ -1,38 +1,38 @@
 import React from "react";
 import { Cross as Hamburger } from "hamburger-react";
 
-export default function Navbar({ content, cart }) {
+function Navbar({ cart }) {
   function handleHamburger(toggled) {
+    const app = document.getElementById("app");
     const hamburgerList = document.getElementById("hamburger_list");
     const background = document.getElementById("background");
+
+    const backgroundDiv = document.createElement("div");
+    backgroundDiv.setAttribute("id", "background");
+    backgroundDiv.classList =
+      "absolute top-0 w-screen h-screen bg-black opacity-50 z-[2]";
 
     if (toggled) {
       hamburgerList.classList.add("animate-slide-in-right");
       hamburgerList.classList.remove("animate-slide-out-right");
-      background.classList.add("animate-fade-in");
-      background.classList.remove("animate-fade-out");
+      app.append(backgroundDiv);
     } else {
       hamburgerList.classList.add("animate-slide-out-right");
       hamburgerList.classList.remove("animate-slide-in-right");
-      background.classList.add("animate-fade-out");
-      background.classList.remove("animate-fade-in");
+      background.remove();
     }
   }
 
   return (
     <>
-      <nav className='flex items-center justify-between'>
+      <nav className='flex items-center justify-between p-3'>
         <div className='flex items-center'>
-          <img
-            src={content.images.logo.src}
-            alt={content.images.logo.name}
-            className='w-24 '
-          />
+          <img src='logo.svg' alt='logo' className='w-24 ' />
           <h1 className='text-2xl font-bold uppercase '>Fuji Apparel</h1>
         </div>
 
-        <aside aria-label='Sidebar' id='hamburger' className='z-[1]'>
-          <div className='relative z-[1]'>
+        <aside aria-label='Sidebar' id='hamburger' className='z-[10]'>
+          <div className='relative z-[10]'>
             <Hamburger onToggle={handleHamburger} size={30} />
           </div>
           <ul
@@ -54,7 +54,7 @@ export default function Navbar({ content, cart }) {
                 <a href='' className='pl-1'>
                   Shop
                 </a>
-                <div className='inline-block w-8 ml-5 text-sm text-center rounded-sm bg-grey'>
+                <div className='inline-block w-8 ml-5 text-sm text-center bg-black rounded-sm'>
                   <span className='text-white'>{cart.length}</span>
                 </div>
               </li>
@@ -70,3 +70,5 @@ export default function Navbar({ content, cart }) {
     </>
   );
 }
+
+export default Navbar;
