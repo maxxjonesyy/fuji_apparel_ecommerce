@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.9",
     "contentful": "^9.3.2",
     "dotenv": "^16.0.3",
     "hamburger-react": "^2.5.0",
