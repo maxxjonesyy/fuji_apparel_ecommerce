@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { content } from "./logic/fetchContent";
 import { ScaleLoader } from "react-spinners";
-import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -10,7 +10,7 @@ function App() {
   function checkContent() {
     const intervalID = setInterval(() => {
       if (
-        content.images.logo != undefined &&
+        content.images.portrait != undefined &&
         content.products.greenDragon != undefined
       ) {
         setLoading(false);
@@ -28,14 +28,8 @@ function App() {
       <ScaleLoader color='#000000' />
     </div>
   ) : (
-    <div>
-      <Navbar content={content} cart={cart} />
-      <section></section>
-
-      <div
-        id='background'
-        className='absolute top-0 w-screen h-screen bg-black opacity-0'
-      ></div>
+    <div id='app'>
+      <Home content={content} cart={cart} />
     </div>
   );
 }
