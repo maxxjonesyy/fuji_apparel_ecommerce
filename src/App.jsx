@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
 
   function checkContent() {
     const intervalID = setInterval(() => {
@@ -23,12 +24,18 @@ function App() {
   }, []);
 
   return loading ? (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center w-screen h-screen'>
       <ScaleLoader color='#000000' />
     </div>
   ) : (
     <div>
-      <Navbar content={content} />
+      <Navbar content={content} cart={cart} />
+      <section></section>
+
+      <div
+        id='background'
+        className='absolute top-0 w-screen h-screen bg-black opacity-0'
+      ></div>
     </div>
   );
 }
