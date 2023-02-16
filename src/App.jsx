@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { content } from "./logic/fetchContent";
 import { ScaleLoader } from "react-spinners";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Shop from "./pages/Shop";
+import Contact from "./pages/Contact";
+
+import Navbar from "./components/Navbar";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,8 +35,15 @@ function App() {
       <ScaleLoader color='#000000' />
     </div>
   ) : (
-    <div id='app'>
-      <Home content={content} cart={cart} />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home content={content} cart={cart} />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
