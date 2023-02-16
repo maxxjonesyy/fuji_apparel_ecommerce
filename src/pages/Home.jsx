@@ -1,5 +1,7 @@
 import React from "react";
-import Navbar from "/src/components/Navbar";
+import { Link } from "react-router-dom";
+
+import Navbar from "../components/Navbar";
 
 function Home({ content, cart }) {
   const slides = [
@@ -9,21 +11,24 @@ function Home({ content, cart }) {
   ];
 
   return (
-    <div className='flex flex-col w-screen h-screen'>
+    <div className='flex flex-col w-full h-screen'>
       <Navbar cart={cart} />
+      <section
+        id='slide_container'
+        aria-label='slideshow'
+        className='flex-1 overflow-hidden'
+      >
+        <div className='absolute w-full bottom-1/2 text-center z-[1]'>
+          <Link to='/shop'>
+            <button className='w-[230px] h-[45px] bg-black text-white rounded-md font-semibold text-xl hover:bg-white hover:text-black transition-all'>
+              Shop
+            </button>
+          </Link>
+        </div>
 
-      <div className='absolute flex items-center justify-center w-full h-full z-[1]'>
-        <a href=''>
-          <button className='w-[250px] h-[45px] bg-black text-white rounded-md font-semibold text-xl hover:bg-white hover:text-black transition-all'>
-            Shop
-          </button>
-        </a>
-      </div>
-
-      <section aria-label='slideshow' className='flex-1 overflow-hidden'>
         {slides.map((slide, index) => {
           return (
-            <div key={index} className='w-full h-full animate-slide-show '>
+            <div key={index} className='w-full h-full animate-slide-show'>
               <img
                 src={slide.src}
                 alt={slide.name}
