@@ -14,14 +14,11 @@ function App() {
 
   function checkContent() {
     const intervalID = setInterval(() => {
-      if (
-        content.images.portrait != undefined &&
-        content.products.greenDragon != undefined
-      ) {
+      if (content) {
         setLoading(false);
         clearInterval(intervalID);
       } else return;
-    }, 250);
+    }, 500);
   }
 
   useEffect(() => {
