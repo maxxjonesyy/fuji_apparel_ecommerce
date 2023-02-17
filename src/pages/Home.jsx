@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
-function Home({ content, cart }) {
+function Home({ content }) {
   const slides = [
     { name: content.images.slide1.name, src: content.images.slide1.src },
     { name: content.images.slide2.name, src: content.images.slide2.src },
@@ -12,7 +12,7 @@ function Home({ content, cart }) {
 
   return (
     <div className='flex flex-col w-full h-screen'>
-      <Navbar cart={cart} />
+      <Navbar />
       <section
         id='slide_container'
         aria-label='slideshow'

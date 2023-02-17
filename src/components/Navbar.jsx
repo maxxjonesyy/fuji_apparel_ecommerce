@@ -1,8 +1,11 @@
 import React from "react";
 import { Cross as Hamburger } from "hamburger-react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Navbar({ cart }) {
+function Navbar() {
+  const cart = useSelector((state) => state.cart.value);
+
   function handleHamburger(toggled) {
     const hamburgerList = document.getElementById("hamburger_list");
 
