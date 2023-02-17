@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { content } from "./logic/fetchContent";
 import { ScaleLoader } from "react-spinners";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Shop from "./pages/Shop";
+import Contact from "./pages/Contact";
+import Cart from "./pages/Cart";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
 
   function checkContent() {
     const intervalID = setInterval(() => {
@@ -28,8 +33,16 @@ function App() {
       <ScaleLoader color='#000000' />
     </div>
   ) : (
-    <div id='app'>
-      <Home content={content} cart={cart} />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home content={content} />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/cart' element={<Cart />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
