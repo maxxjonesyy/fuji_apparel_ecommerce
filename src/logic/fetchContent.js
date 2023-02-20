@@ -1,6 +1,6 @@
 import * as contentful from "contentful";
 
-const content = { images: {}, products: {} };
+const content = { images: {}, products: [] };
 
 function fetchContent(type) {
   const client = contentful.createClient({
@@ -26,12 +26,12 @@ function contentCleanup() {
 
   fetchContent("product").then((response) =>
     response.forEach((item) => {
-      content.products[item.fields.productName] = {
+      content.products.push({
         name: item.fields.name,
         description: item.fields.productDescription,
         images: item.fields.productImage,
         price: item.fields.productPrice,
-      };
+      });
     })
   );
 }
