@@ -8,9 +8,11 @@ import About from "./pages/About";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
 
   function checkContent() {
     const intervalID = setInterval(() => {
@@ -35,9 +37,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home content={content} />} />
           <Route path='/about' element={<About />} />
-          <Route path='/shop' element={<Shop />} />
+          <Route path='/shop' element={<Shop content={content} />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/product' element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
     </div>
