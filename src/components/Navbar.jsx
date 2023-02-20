@@ -1,7 +1,7 @@
 import React from "react";
 import { Cross as Hamburger } from "hamburger-react";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const cart = useSelector((state) => state.cart.value);
@@ -49,13 +49,18 @@ function Navbar() {
                 <Link to='/shop' className='pl-1'>
                   Shop
                 </Link>
-                <div className='inline-block w-8 ml-5 text-sm text-center bg-black rounded-sm'>
-                  <span className='text-white'>{cart.length}</span>
-                </div>
               </li>
               <li className='p-1 text-xl rounded-md hover:bg-lightGrey'>
                 <Link to='/contact' className='pl-1'>
                   Contact
+                </Link>
+              </li>
+              <li className='p-1 text-xl rounded-md hover:bg-lightGrey'>
+                <Link to='/cart'>
+                  Cart
+                  <div className='inline-block w-8 ml-5 text-sm text-center bg-black rounded-sm'>
+                    <span className='text-white'>{cart.length}</span>
+                  </div>
                 </Link>
               </li>
             </div>
