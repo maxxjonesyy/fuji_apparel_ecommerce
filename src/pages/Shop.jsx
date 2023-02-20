@@ -24,12 +24,10 @@ function Shop({ content }) {
                 alt={product.images[0].fields.title}
               />
               <div className='flex flex-col items-center w-full gap-5 p-5'>
-                <h1 className='text-2xl font-semibold'>{product.name}</h1>
-                <span className='text-lg font-semibold'>${product.price}</span>
-                <p className='text-sm text-center lg:text-base'>
-                  {product.description}
-                </p>
-                <button className='w-full p-2 text-white bg-black border rounded-md hover:text-black hover:bg-white md:w-2/3'>
+                <h1 className='product-heading'>{product.name}</h1>
+                <span className='product-price'>${product.price}</span>
+                <p className='product-description'>{product.description}</p>
+                <button className='button'>
                   <Link
                     to='/product'
                     state={{ product: content.products[index] }}
