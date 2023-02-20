@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
+import Swal from "sweetalert2";
 
 import Navbar from "../components/Navbar";
 
@@ -14,7 +15,19 @@ function ProductPage() {
 
   function handleCartSubmit() {
     if (size === "") {
-      alert("Please select a size before proceeding");
+      Swal.fire({
+        title: "Error!",
+        text: "Please select a size before proceeding",
+        icon: "error",
+        confirmButtonColor: "#000000",
+      });
+    } else {
+      Swal.fire({
+        title: "Success!",
+        text: "Item has been added to cart",
+        icon: "success",
+        confirmButtonColor: "#000000",
+      });
     }
   }
 
@@ -39,7 +52,8 @@ function ProductPage() {
             <h1 className='pt-5 product-heading'>{state.product.name}</h1>
             <span className='product-price'>${state.product.price}</span>
             <p className='w-full lg:w-2/3'>{state.product.description}</p>
-            <FormControl className='w-full lg:w-2/3'>
+
+            <FormControl id='form' className='w-full lg:w-2/3'>
               <InputLabel>Select Size</InputLabel>
               <Select
                 value={size}
@@ -52,6 +66,7 @@ function ProductPage() {
                 <MenuItem value='X Large'>X Large</MenuItem>
               </Select>
             </FormControl>
+
             <button
               className='w-full text-white bg-black rounded-md h-[50px] lg:w-2/3'
               onClick={handleCartSubmit}
