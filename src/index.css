@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .product-heading {
+    @apply text-2xl font-semibold lg:text-3xl;
+  }
+
+  .product-description {
+    @apply text-sm lg:text-base;
+  }
+
+  .product-price {
+    @apply text-lg font-semibold lg:text-2xl;
+  }
+
+  .button {
+    @apply w-full p-2 text-white bg-black border rounded-md hover:text-black hover:bg-white md:w-2/3;
+  }
+}
+
 .animate-slide-in-right {
   transform: translateX(0);
   transition: 0.5s ease-in-out;
