@@ -40,3 +40,7 @@
     transform: translateY(-200%);
   }
 }
+
+button > a {
+  display: block;
+}
