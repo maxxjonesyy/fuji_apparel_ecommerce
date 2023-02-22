@@ -18,6 +18,14 @@
   .button {
     @apply w-full p-2 text-white bg-black border rounded-md hover:text-black hover:bg-white md:w-2/3;
   }
+
+  .nav-heading {
+    @apply p-1 text-xl font-semibold rounded-md hover:bg-lightGrey lg:hover:bg-transparent;
+  }
+
+  .link-padding {
+    @apply pl-1;
+  }
 }
 
 .animate-slide-in-right {
