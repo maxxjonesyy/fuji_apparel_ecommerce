@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { setCart } from "../logic/redux/slices/cartSlice";
 import Swal from "sweetalert2";
 
 import Navbar from "../components/Navbar";
 
 function ProductPage() {
+  const dispatch = useDispatch();
   const { state } = useLocation();
   const [size, setSize] = useState("");
 
-  function handleSizeChange(event) {
+  function handleSelectSize(event) {
     setSize(event.target.value);
   }
 
@@ -22,6 +25,8 @@ function ProductPage() {
         confirmButtonColor: "#000000",
       });
     } else {
+      dispatch(setCart([state.product, { size }]));
+
       Swal.fire({
         title: "Success!",
         text: "Item has been added to cart",
@@ -58,7 +63,7 @@ function ProductPage() {
               <Select
                 value={size}
                 label='Select Size'
-                onChange={handleSizeChange}
+                onChange={handleSelectSize}
               >
                 <MenuItem value='Small'>Small</MenuItem>
                 <MenuItem value='Medium'>Medium</MenuItem>
