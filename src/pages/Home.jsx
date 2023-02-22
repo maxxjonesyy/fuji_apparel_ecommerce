@@ -13,12 +13,13 @@ function Home({ content }) {
   return (
     <div className='flex flex-col w-full h-screen'>
       <Navbar />
+
       <section
         id='slide_container'
         aria-label='slideshow'
-        className='flex-1 overflow-hidden'
+        className='relative flex-1 overflow-hidden'
       >
-        <div className='absolute w-full bottom-1/2 text-center z-[1]'>
+        <div className='absolute w-full h-full text-center top-1/2 z-[1]'>
           <Link to='/shop'>
             <button className='w-[230px] h-[45px] bg-black text-white rounded-md font-semibold text-xl hover:bg-white hover:text-black transition-all'>
               Shop
