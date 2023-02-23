@@ -1,8 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
   font-family: "Poppins", sans-serif;
@@ -10,7 +9,7 @@
 
 @layer components {
   .product-heading {
-    @apply text-2xl font-semibold lg:text-3xl;
+    @apply text-xl font-semibold lg:text-3xl;
   }
 
   .product-description {
@@ -26,7 +25,7 @@
   }
 
   .nav-heading {
-    @apply p-1 text-xl rounded-md hover:bg-lightGrey lg:hover:bg-transparent;
+    @apply p-1 text-lg rounded-md hover:bg-lightGrey lg:hover:bg-transparent;
   }
 
   .link-padding {
