@@ -16,6 +16,13 @@ function ProductPage() {
     setSize(event.target.value);
   }
 
+  const cartProduct = {
+    name: state.product.name,
+    price: state.product.price,
+    image: state.product.images[0].fields.file.url,
+    size: size,
+  };
+
   function handleCartSubmit() {
     if (size === "") {
       Swal.fire({
@@ -25,7 +32,7 @@ function ProductPage() {
         confirmButtonColor: "#000000",
       });
     } else {
-      dispatch(setCart([state.product, { size }]));
+      dispatch(setCart(cartProduct));
 
       Swal.fire({
         title: "Success!",

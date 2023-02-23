@@ -12,7 +12,6 @@ import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
 
   function checkContent() {
     const intervalID = setInterval(() => {
@@ -39,7 +38,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/shop' element={<Shop content={content} />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<Cart content={content} />} />
           <Route path='/product' element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
