@@ -35,7 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home content={content} />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/about' element={<About content={content} />} />
           <Route path='/shop' element={<Shop content={content} />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart content={content} />} />
