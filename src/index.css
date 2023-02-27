@@ -21,7 +21,7 @@
   }
 
   .button {
-    @apply w-full p-2 text-white bg-black border rounded-md hover:text-black hover:bg-white md:w-2/3;
+    @apply w-full p-2 text-white bg-black border rounded-md hover:text-black hover:bg-white md:w-2/3 cursor-pointer;
   }
 
   .nav-heading {
@@ -30,6 +30,14 @@
 
   .link-padding {
     @apply pl-1;
+  }
+
+  .form-label {
+    @apply font-semibold text-base pt-5 w-full text-gray-700;
+  }
+
+  .form-input {
+    @apply border p-1 drop-shadow-sm rounded-md text-gray-700 w-full mt-3;
   }
 }
 
