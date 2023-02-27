@@ -33,6 +33,7 @@ function Home({ content }) {
               <img
                 src={slide.src}
                 alt={slide.name}
+                loading='eager'
                 className='object-cover w-full h-full opacity-70'
               />
             </div>

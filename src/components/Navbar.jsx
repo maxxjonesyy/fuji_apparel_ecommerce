@@ -35,7 +35,7 @@ function Navbar() {
 
           <ul
             id='hamburger_list'
-            className='fixed w-[60%] h-screen top-0 right-0 bg-white translate-x-full lg:relative lg:h-auto lg:w-auto lg:translate-x-0'
+            className='fixed w-[60%] h-screen top-0 right-0 bg-white shadow-lg translate-x-full lg:relative lg:h-auto lg:w-auto lg:translate-x-0'
           >
             <div className='flex flex-col justify-center h-full gap-3 p-3 lg:flex-row lg:gap-5'>
               <li className='nav-heading'>
